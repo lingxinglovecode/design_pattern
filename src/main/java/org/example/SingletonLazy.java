@@ -8,7 +8,8 @@ public class SingletonLazy {
     private static SingletonLazy instance;
     private SingletonLazy(){}
 
-    public static SingletonLazy getInstance(){
+    // 添加sychronized关键字,保证线程安全,该方法每次只会有一个线程调用,另一个线程会等待
+    public static synchronized SingletonLazy getInstance(){
         if(instance == null){
             instance = new SingletonLazy();
         }
